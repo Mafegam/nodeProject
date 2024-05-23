@@ -1,4 +1,4 @@
-##Proyecto Node
+## Proyecto Node
 
-#Autores
-*Mafe Gamboa
+# Autores
+* Mafe Gamboa
