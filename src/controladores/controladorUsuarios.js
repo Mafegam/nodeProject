@@ -58,8 +58,15 @@ const ControladorUsuarios = {
 
     actualizarUsuario: async (solicitud, respuesta) => {
         try {
-            console.log("Id: ", solicitud.body);
-            respuesta.json({ mensaje: "PUT Actualizar usuario works" });
+            const usuarioActualizado = await ModeloUsuario.findByIdAndUpdate(
+            solicitud.params.id, solicitud.body
+            );
+            if(usuarioActualizado._id){
+                respuesta.json({ 
+                mensaje: "Datos actualizados:",
+                datos: usuarioActualizado._id,               
+                });         
+            }
         } catch {
             console.log((solicitud.body));
             respuesta.json({ error: true, mensaje: "Ocurrió un error al actualizar el usuario" });
